@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+{% block contactactive %}active{% endblock contactactive %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+    <div class="container my-3">
+        <div class="row">
+            <div class="col-md-8">
+                <form action="{% url 'contact' %}" method="post">
+                    {% csrf_token %}
+                    <h4>Name :</h4>
+                    <input type="text" class="form-control" placeholder="Name" name="name"><br>
+                    <h4>Email :</h4>
+                    <input type="text" class="form-control" placeholder="Email" name="email"><br>
+                    <h4>Tell Me :</h4>
+                    <textarea style="height: 153px; width: 729px;"  name="textarea" placeholder="Wright Heare"></textarea><br>
+                    <input type="submit" class="btn btn-info form-control" >
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

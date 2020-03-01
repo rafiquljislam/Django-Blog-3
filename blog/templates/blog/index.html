@@ -1,0 +1,35 @@
+{% extends 'blog/base.html' %}
+{% block homeactive %}active{% endblock homeactive %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+
+
+<div class=" py-4 bg-danger text-light text-center">
+    <p class=" display-1"> Hello,I am MD. Rafiqul Islam </p>
+</div>
+<hr class="m-0 p-1 bg-info">
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+          {% for post in posts %}
+            <div class="card my-3">
+                <div class="card-header">
+                  Posted by <a href="#">{{post.author}}</a> on {{post.datetime|date:'d F,Y'}}
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">{{post.title}}</h5>
+                  <p class="card-text">{{post.content|truncatechars:200}}</p>
+                  <a href="{{ post.slug }}" class="btn btn-primary">Read more</a>
+                </div>
+              </div>
+          {% endfor %}
+        </div>
+        <div class="col-md-4">
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
